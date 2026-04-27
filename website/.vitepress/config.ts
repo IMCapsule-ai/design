@@ -12,8 +12,8 @@ export default defineConfig({
   title: 'Palette Design',
   titleTemplate: ':title — Palette Design',
   description:
-    'Palette Design is a desktop AI design platform — go from prompt to polished prototype, slide deck, or marketing asset in seconds. Download for macOS, Windows, and Linux.',
-  lang: 'en-US',
+    'Palette Design은 데스크톱 AI 디자인 플랫폼입니다. 프롬프트 한 줄로 프로토타입, 슬라이드, 마케팅 자료를 몇 초 만에 만들어보세요. macOS, Windows, Linux용 무료 다운로드.',
+  lang: 'ko-KR',
 
   base: SITE_BASE,
   cleanUrls: true,
@@ -191,24 +191,24 @@ export default defineConfig({
     siteTitle: false,
 
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Features', link: '/#features' },
-      { text: 'Download', link: '/#download' },
-      { text: 'Quickstart', link: '/quickstart' },
+      { text: '홈', link: '/' },
+      { text: '기능', link: '/#features' },
+      { text: '다운로드', link: '/#download' },
+      { text: '빠른 시작', link: '/quickstart' },
       { text: 'FAQ', link: '/faq' },
     ],
 
     sidebar: [
       {
-        text: 'Get started',
+        text: '시작하기',
         items: [
-          { text: 'Overview', link: '/' },
-          { text: 'Download', link: '/#download' },
-          { text: 'Quickstart', link: '/quickstart' },
+          { text: '개요', link: '/' },
+          { text: '다운로드', link: '/#download' },
+          { text: '빠른 시작', link: '/quickstart' },
         ],
       },
       {
-        text: 'Help',
+        text: '도움말',
         items: [{ text: 'FAQ', link: '/faq' }],
       },
     ],
@@ -217,7 +217,7 @@ export default defineConfig({
 
     footer: {
       message:
-        '<a href="/quickstart">Quickstart</a> · <a href="/faq">FAQ</a> · <a href="mailto:hello@palettedesign.app">Contact</a>',
+        '<a href="/quickstart">빠른 시작</a> · <a href="/faq">FAQ</a> · <a href="mailto:hello@palettedesign.app">문의</a>',
       copyright: '© 2026-present Palette Design',
     },
   },

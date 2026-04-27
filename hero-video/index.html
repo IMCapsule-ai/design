@@ -1,9 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1920, height=1080" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pretendard:wght@500;700;800&family=Noto+Sans+KR:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       html, body {
@@ -12,7 +18,7 @@
         height: 1080px;
         overflow: hidden;
         background: #fbfaff;
-        font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+        font-family: 'Pretendard', 'Noto Sans KR', 'Plus Jakarta Sans', system-ui, sans-serif;
         color: #1c1b29;
       }
 
@@ -30,11 +36,10 @@
       #blob-3 { width: 600px; height: 600px; bottom: -180px; left: 35%;
         background: radial-gradient(circle, #a855f7 0%, transparent 65%); opacity: 0.45; }
 
-      /* Centered without CSS transform — GSAP can animate y/scale freely. */
       #brandmark {
         position: absolute;
-        top: 360px;       /* (1080 - 360) / 2 */
-        left: 780px;      /* (1920 - 360) / 2 */
+        top: 360px;
+        left: 780px;
         width: 360px;
         height: 360px;
         border-radius: 50%;
@@ -54,7 +59,7 @@
       }
       #headline {
         top: 460px;
-        font-size: 168px;
+        font-size: 156px;
         font-weight: 800;
         letter-spacing: -0.04em;
         line-height: 1.0;
@@ -64,11 +69,10 @@
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
-        font-style: italic;
       }
       #tagline {
         top: 700px;
-        font-size: 36px;
+        font-size: 38px;
         color: #4a4860;
         font-weight: 500;
         letter-spacing: -0.005em;
@@ -102,8 +106,7 @@
       .ftag {
         font-size: 20px;
         font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
+        letter-spacing: 0.06em;
         background: linear-gradient(135deg, #6366f1, #ec4899);
         -webkit-background-clip: text;
         background-clip: text;
@@ -143,20 +146,20 @@
       </div>
 
       <div id="f1" class="floater clip" data-start="0.5" data-duration="5.5" data-track-index="4">
-        <span class="ftag">Landing</span>
+        <span class="ftag">랜딩 페이지</span>
         <div class="bar"></div>
         <div class="bar short"></div>
       </div>
 
       <div id="f2" class="floater clip" data-start="0.9" data-duration="5.1" data-track-index="5">
-        <span class="ftag">Pricing</span>
+        <span class="ftag">가격 페이지</span>
         <div class="pill"></div>
         <div class="pill s2"></div>
         <div class="pill s3"></div>
       </div>
 
       <div id="f3" class="floater clip" data-start="1.3" data-duration="4.7" data-track-index="6">
-        <span class="ftag">Dashboard</span>
+        <span class="ftag">대시보드</span>
         <div class="chart">
           <span style="height: 32%"></span>
           <span style="height: 64%"></span>
@@ -168,11 +171,11 @@
       </div>
 
       <div id="headline" class="text-row clip" data-start="2.4" data-duration="3.6" data-track-index="7">
-        Design with <span class="grad">intent.</span>
+        의도를 담아 <span class="grad">디자인.</span>
       </div>
 
       <div id="tagline" class="text-row clip" data-start="3.1" data-duration="2.9" data-track-index="8">
-        A desktop AI design platform. Prompt to prototype, in seconds.
+        데스크톱 AI 디자인 플랫폼 — 몇 초 만에 프롬프트에서 프로토타입까지.
       </div>
 
       <div id="wordmark" class="text-row clip" data-start="4.0" data-duration="2.0" data-track-index="9">

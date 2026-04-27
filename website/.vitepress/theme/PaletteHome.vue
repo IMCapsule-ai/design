@@ -4,18 +4,18 @@ import { onMounted, onUnmounted, ref } from 'vue';
 import SmartDownload from './SmartDownload.vue';
 
 const tickerLine = [
-  'landing pages',
-  'dashboards',
-  'pricing',
-  'pitch decks',
-  'mobile UI',
-  'chat UIs',
-  'calendars',
-  'receipts',
-  'portfolios',
-  'emails',
-  'data tables',
-  'editorial layouts',
+  '랜딩 페이지',
+  '대시보드',
+  '가격 페이지',
+  '피치덱',
+  '모바일 UI',
+  '챗봇 UI',
+  '캘린더',
+  '영수증',
+  '포트폴리오',
+  '이메일',
+  '데이터 테이블',
+  '에디토리얼 레이아웃',
 ];
 
 // Simple parallax for the hero blobs
@@ -47,23 +47,23 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
       <div class="ph-hero-grid">
         <div class="ph-hero-copy">
           <span class="ph-eyebrow">
-            <span class="ph-dot" /> v0.1.5 · live
+            <span class="ph-dot" /> v0.1.5 · 라이브
           </span>
           <h1 class="ph-title">
-            Design with
-            <span class="ph-title-grad">intent.</span>
+            의도를 담아
+            <span class="ph-title-grad">디자인.</span>
           </h1>
           <p class="ph-tagline">
-            A desktop AI design platform. Prompt to prototype, slide deck, or
-            marketing asset — in seconds, on your laptop.
+            데스크톱 AI 디자인 플랫폼. 프롬프트 한 줄로 프로토타입, 슬라이드,
+            마케팅 자료까지 — 몇 초 안에, 내 컴퓨터에서.
           </p>
 
           <div class="ph-cta-row">
             <a href="#download" class="ph-btn ph-btn-primary">
-              <span>Download for free</span>
+              <span>무료 다운로드</span>
               <span class="ph-btn-arrow">↓</span>
             </a>
-            <a href="#features" class="ph-btn ph-btn-ghost">See what it does</a>
+            <a href="#features" class="ph-btn ph-btn-ghost">기능 살펴보기</a>
           </div>
 
           <div class="ph-trust-row">
@@ -71,39 +71,22 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
             <span class="ph-trust-pill">Windows</span>
             <span class="ph-trust-pill">Linux</span>
             <span class="ph-trust-divider" />
-            <span class="ph-trust-text">Local-first · No subscription</span>
+            <span class="ph-trust-text">로컬 우선 · 구독 없음</span>
           </div>
         </div>
 
         <div class="ph-hero-art">
-          <div class="ph-card-stack">
-            <img
-              :src="withBase('/logo-mark.png')"
-              alt="Palette Design"
-              class="ph-mark"
+          <div class="ph-hero-video">
+            <video
+              :src="withBase('/demos/hero.mp4')"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              :poster="withBase('/hero.png')"
+              aria-label="Palette Design — design with intent"
             />
-            <div class="ph-floater ph-floater-1">
-              <span class="ph-floater-tag">Landing</span>
-              <div class="ph-floater-bar" />
-              <div class="ph-floater-bar ph-floater-bar-short" />
-            </div>
-            <div class="ph-floater ph-floater-2">
-              <span class="ph-floater-tag">Pricing</span>
-              <div class="ph-pill ph-pill-1" />
-              <div class="ph-pill ph-pill-2" />
-              <div class="ph-pill ph-pill-3" />
-            </div>
-            <div class="ph-floater ph-floater-3">
-              <span class="ph-floater-tag">Dashboard</span>
-              <div class="ph-chart">
-                <span style="--h:32%" />
-                <span style="--h:64%" />
-                <span style="--h:48%" />
-                <span style="--h:88%" />
-                <span style="--h:56%" />
-                <span style="--h:72%" />
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -121,27 +104,26 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
     <!-- ─────── Bento features ──────────────────────────────────────────── -->
     <section id="features" class="ph-section">
       <header class="ph-section-head">
-        <span class="ph-kicker">What it does</span>
-        <h2 class="ph-h2">Twelve design skills, drag-to-tune, region-level rewrites.</h2>
+        <span class="ph-kicker">주요 기능</span>
+        <h2 class="ph-h2">12가지 디자인 스킬, 드래그 미세조정, 영역별 재작성.</h2>
       </header>
 
       <div class="ph-bento">
         <article class="ph-tile ph-tile-tall ph-tile-grad">
           <span class="ph-tile-no">01</span>
-          <h3>Prompt to polished design</h3>
+          <h3>프롬프트에서 완성형 디자인까지</h3>
           <p>
-            Describe what you want. Palette generates a working prototype, slide,
-            or marketing asset in seconds — hover states, tabs, and empty states
-            already wired up.
+            원하는 것을 설명하세요. 호버 상태, 탭, 빈 상태까지 이미 연결된
+            프로토타입·슬라이드·마케팅 자료를 몇 초 안에 만들어냅니다.
           </p>
         </article>
 
         <article class="ph-tile">
           <span class="ph-tile-no">02</span>
-          <h3>AI-tuned sliders</h3>
+          <h3>AI 튜닝 슬라이더</h3>
           <p>
-            The model emits the parameters worth tweaking — color, spacing, font.
-            Drag, don't re-prompt.
+            색상, 간격, 폰트 — 모델이 조정할 가치가 있는 파라미터를 직접
+            제시합니다. 다시 프롬프트하지 말고 드래그로 다듬으세요.
           </p>
           <div class="ph-mini-sliders">
             <span><span style="--w:62%" /></span>
@@ -152,33 +134,33 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
 
         <article class="ph-tile ph-tile-wide">
           <span class="ph-tile-no">03</span>
-          <h3>Comment, don't retype</h3>
+          <h3>코멘트로 수정, 다시 입력하지 않아요</h3>
           <p>
-            Click any element in the preview. Drop a pin. Leave a note. Palette
-            rewrites just that region — no more re-prompting the whole page to
-            move a button.
+            프리뷰의 어떤 요소든 클릭해 핀을 놓고 메모를 남기세요. Palette는 해당
+            영역만 다시 작성합니다 — 버튼 하나 옮기려고 페이지 전체를 다시
+            생성하지 않아도 됩니다.
           </p>
           <div class="ph-pin-demo">
             <span class="ph-pin">1</span>
-            <span class="ph-pin-note">make this CTA pop more</span>
+            <span class="ph-pin-note">이 CTA를 더 눈에 띄게</span>
           </div>
         </article>
 
         <article class="ph-tile">
           <span class="ph-tile-no">04</span>
-          <h3>Twelve built-in skills</h3>
+          <h3>12가지 빌트인 스킬</h3>
           <p>
-            Landing pages, dashboards, slide decks, pricing pages, mobile screens,
-            chat UIs, calendars, glassmorphism, editorial typography, more.
+            랜딩 페이지, 대시보드, 피치덱, 가격 페이지, 모바일 화면, 챗봇 UI,
+            캘린더, 글래스모피즘, 에디토리얼 타이포그래피 등.
           </p>
         </article>
 
         <article class="ph-tile ph-tile-tall">
           <span class="ph-tile-no">05</span>
-          <h3>Five exports, real files</h3>
+          <h3>5가지 익스포트, 실제 파일</h3>
           <p>
-            HTML (inlined CSS), PDF, PPTX, ZIP, Markdown — all generated
-            on-device. No cloud detour. Everything is yours.
+            HTML(인라인 CSS), PDF, PPTX, ZIP, Markdown — 모두 기기 내부에서
+            생성됩니다. 클라우드 우회 없음. 전부 당신의 것.
           </p>
           <div class="ph-export-chips">
             <span>HTML</span><span>PDF</span><span>PPTX</span><span>ZIP</span><span>MD</span>
@@ -187,64 +169,48 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
 
         <article class="ph-tile ph-tile-wide">
           <span class="ph-tile-no">06</span>
-          <h3>Your laptop, your designs</h3>
+          <h3>내 노트북, 내 디자인</h3>
           <p>
-            Designs, prompts, and settings stay on disk. Nothing is uploaded
-            unless you choose to share. No mandatory account, no telemetry by
-            default.
+            디자인, 프롬프트, 설정은 모두 디스크에 저장됩니다. 직접 공유하지
+            않으면 어떤 것도 업로드되지 않습니다. 필수 계정도, 기본 텔레메트리도
+            없습니다.
           </p>
         </article>
-      </div>
-    </section>
-
-    <!-- ─────── Hero video (HyperFrames) ──────────────────────────────── -->
-    <section class="ph-section ph-shot-section">
-      <div class="ph-shot-frame ph-video-frame">
-        <video
-          :src="withBase('/demos/hero.mp4')"
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="metadata"
-          :poster="withBase('/hero.png')"
-          aria-label="Palette Design — design with intent"
-        />
       </div>
     </section>
 
     <!-- ─────── Take a closer look — NB2 screenshots ──────────────────── -->
     <section class="ph-section">
       <header class="ph-section-head">
-        <span class="ph-kicker">Take a closer look</span>
-        <h2 class="ph-h2">Six moments from the app.</h2>
-        <p class="ph-section-sub">From first launch to region-level rewrites.</p>
+        <span class="ph-kicker">자세히 보기</span>
+        <h2 class="ph-h2">앱의 여섯 장면.</h2>
+        <p class="ph-section-sub">첫 실행부터 영역별 재작성까지.</p>
       </header>
 
       <div class="ph-gallery">
         <figure class="ph-shot">
-          <img :src="withBase('/screenshots/comment-mode.png')" alt="Comment mode — drop a pin, the model rewrites only that region" loading="lazy" />
-          <figcaption><b>Comment, don't retype.</b> Drop pins on the preview; the model rewrites just that region.</figcaption>
+          <img :src="withBase('/screenshots/comment-mode.png')" alt="코멘트 모드 — 핀 한 번으로 해당 영역만 재작성" loading="lazy" />
+          <figcaption><b>코멘트로 수정하세요.</b> 프리뷰에 핀을 떨어뜨리면 모델이 해당 영역만 다시 작성합니다.</figcaption>
         </figure>
         <figure class="ph-shot">
-          <img :src="withBase('/screenshots/tweaks-sliders.png')" alt="AI-emitted tweaks panel" loading="lazy" />
-          <figcaption><b>AI-tuned sliders.</b> The model emits the parameters worth tweaking. Drag, don't re-prompt.</figcaption>
+          <img :src="withBase('/screenshots/tweaks-sliders.png')" alt="AI가 제안한 튜닝 패널" loading="lazy" />
+          <figcaption><b>AI 튜닝 슬라이더.</b> 모델이 조정할 만한 파라미터를 알려줍니다. 다시 프롬프트하지 말고 드래그로.</figcaption>
         </figure>
         <figure class="ph-shot">
-          <img :src="withBase('/screenshots/agent-panel.png')" alt="Live agent panel showing todos and streaming tool calls" loading="lazy" />
-          <figcaption><b>Watch the agent work.</b> Todos, tool calls, and streamed reasoning — always interruptible.</figcaption>
+          <img :src="withBase('/screenshots/agent-panel.png')" alt="할 일과 도구 호출이 흐르는 에이전트 패널" loading="lazy" />
+          <figcaption><b>에이전트의 작업을 실시간으로.</b> 할 일, 도구 호출, 스트리밍 추론 — 언제든 중단할 수 있습니다.</figcaption>
         </figure>
         <figure class="ph-shot">
-          <img :src="withBase('/screenshots/hub-your-designs.png')" alt="Your Designs hub" loading="lazy" />
-          <figcaption><b>Every iteration, kept.</b> Designs are saved locally; switch between projects in one click.</figcaption>
+          <img :src="withBase('/screenshots/hub-your-designs.png')" alt="내 디자인 허브" loading="lazy" />
+          <figcaption><b>모든 반복이 남습니다.</b> 디자인은 로컬에 저장되고, 프로젝트는 한 번의 클릭으로 전환됩니다.</figcaption>
         </figure>
         <figure class="ph-shot">
-          <img :src="withBase('/screenshots/hub-examples.png')" alt="Built-in template gallery" loading="lazy" />
-          <figcaption><b>Twelve built-in templates.</b> Landing, dashboard, pricing, pitch deck, chat UI — one click to start.</figcaption>
+          <img :src="withBase('/screenshots/hub-examples.png')" alt="빌트인 템플릿 갤러리" loading="lazy" />
+          <figcaption><b>12가지 빌트인 템플릿.</b> 랜딩, 대시보드, 가격, 피치덱, 챗봇 UI — 한 번의 클릭으로 시작.</figcaption>
         </figure>
         <figure class="ph-shot">
-          <img :src="withBase('/screenshots/add-provider-menu.png')" alt="Settings dialog" loading="lazy" />
-          <figcaption><b>Tuned for design work.</b> Multiple AI engines under the hood, picked automatically for the task.</figcaption>
+          <img :src="withBase('/screenshots/add-provider-menu.png')" alt="설정 대화상자" loading="lazy" />
+          <figcaption><b>디자인 작업에 최적화.</b> 작업에 맞춰 자동으로 선택되는 다중 AI 엔진이 내장되어 있습니다.</figcaption>
         </figure>
       </div>
     </section>
@@ -253,29 +219,29 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
     <section class="ph-stats">
       <div class="ph-stats-card">
         <span class="ph-stat-num">12</span>
-        <span class="ph-stat-label">built-in design skills</span>
+        <span class="ph-stat-label">빌트인 디자인 스킬</span>
       </div>
       <div class="ph-stats-card">
         <span class="ph-stat-num">5</span>
-        <span class="ph-stat-label">export formats</span>
+        <span class="ph-stat-label">익스포트 포맷</span>
       </div>
       <div class="ph-stats-card">
         <span class="ph-stat-num">6</span>
-        <span class="ph-stat-label">platform builds</span>
+        <span class="ph-stat-label">플랫폼 빌드</span>
       </div>
       <div class="ph-stats-card">
         <span class="ph-stat-num">0</span>
-        <span class="ph-stat-label">cloud round-trips</span>
+        <span class="ph-stat-label">클라우드 왕복</span>
       </div>
     </section>
 
     <!-- ─────── Download ────────────────────────────────────────────────── -->
     <section id="download" class="ph-section">
       <header class="ph-section-head">
-        <span class="ph-kicker">Get it</span>
-        <h2 class="ph-h2">Download Palette Design</h2>
+        <span class="ph-kicker">다운로드</span>
+        <h2 class="ph-h2">Palette Design 받기</h2>
         <p class="ph-section-sub">
-          Free. Pick your platform — installs in under a minute.
+          무료. 플랫폼을 선택하세요 — 1분 안에 설치됩니다.
         </p>
       </header>
       <SmartDownload />
@@ -284,25 +250,25 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
     <!-- ─────── How it works ────────────────────────────────────────────── -->
     <section class="ph-section">
       <header class="ph-section-head">
-        <span class="ph-kicker">How it works</span>
-        <h2 class="ph-h2">From prompt to polished, in three steps.</h2>
+        <span class="ph-kicker">사용 방법</span>
+        <h2 class="ph-h2">프롬프트에서 완성까지, 세 단계로.</h2>
       </header>
 
       <ol class="ph-steps">
         <li class="ph-step">
           <span class="ph-step-no">1</span>
-          <h3>Install &amp; open</h3>
-          <p>Run the installer for your OS. The app is ready in 90 seconds.</p>
+          <h3>설치하고 실행</h3>
+          <p>OS에 맞는 인스톨러를 실행하세요. 90초 안에 시작할 수 있습니다.</p>
         </li>
         <li class="ph-step">
           <span class="ph-step-no">2</span>
-          <h3>Type a prompt</h3>
-          <p>Pick a built-in template or describe your own. Renders in seconds.</p>
+          <h3>프롬프트 입력</h3>
+          <p>빌트인 템플릿을 선택하거나 직접 설명하세요. 몇 초 만에 렌더링됩니다.</p>
         </li>
         <li class="ph-step">
           <span class="ph-step-no">3</span>
-          <h3>Refine &amp; export</h3>
-          <p>Inline comments, AI sliders, local files. Export to HTML, PDF, PPTX, ZIP, MD.</p>
+          <h3>다듬고 내보내기</h3>
+          <p>인라인 코멘트, AI 슬라이더, 로컬 파일. HTML, PDF, PPTX, ZIP, MD로 내보내기.</p>
         </li>
       </ol>
     </section>
@@ -310,14 +276,14 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
     <!-- ─────── Final CTA ──────────────────────────────────────────────── -->
     <section class="ph-final">
       <div class="ph-final-card">
-        <h3>Ready to design without the wait?</h3>
-        <p>Install Palette on your machine — yours forever, no subscription.</p>
+        <h3>기다림 없이 디자인할 준비됐나요?</h3>
+        <p>당신의 컴퓨터에 Palette를 설치하세요 — 평생 사용, 구독 없음.</p>
         <div class="ph-cta-row ph-cta-center">
           <a href="#download" class="ph-btn ph-btn-primary">
-            <span>Download Palette Design</span>
+            <span>Palette Design 다운로드</span>
             <span class="ph-btn-arrow">↓</span>
           </a>
-          <a href="/quickstart" class="ph-btn ph-btn-ghost">Quickstart</a>
+          <a href="/quickstart" class="ph-btn ph-btn-ghost">빠른 시작</a>
         </div>
       </div>
     </section>
@@ -528,18 +494,27 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
   font-weight: 500;
 }
 
-/* Hero artwork — floating cards behind a brand mark halo */
+/* Hero artwork — animated MP4 rendered with HyperFrames */
 .ph-hero-art {
   position: relative;
-  height: 480px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-@media (max-width: 860px) {
-  .ph-hero-art {
-    height: 360px;
-  }
+.ph-hero-video {
+  width: 100%;
+  border-radius: 22px;
+  padding: 6px;
+  background: var(--ph-grad-soft);
+  box-shadow: 0 28px 64px -20px rgba(99, 102, 241, 0.4);
+}
+.ph-hero-video video {
+  display: block;
+  width: 100%;
+  border-radius: 16px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #fbfaff;
 }
 .ph-card-stack {
   position: relative;

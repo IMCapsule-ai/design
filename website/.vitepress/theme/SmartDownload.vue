@@ -96,16 +96,16 @@ function detectPrimaryAsset(): { asset: Asset | null; label: string } {
   if (isMacUA) {
     const looksIntel = /Intel Mac OS X/.test(ua) && !/AppleWebKit\/6(0[6-9]|[1-9][0-9])/.test(ua);
     return looksIntel
-      ? { asset: macIntel, label: 'macOS · Intel detected' }
-      : { asset: macArm, label: 'macOS · Apple Silicon detected' };
+      ? { asset: macIntel, label: 'macOS · Intel 감지됨' }
+      : { asset: macArm, label: 'macOS · Apple Silicon 감지됨' };
   }
   if (isWin) {
     const isArm = /ARM64|aarch64/i.test(ua) || /arm/i.test(platformHint);
     return isArm
-      ? { asset: winArm, label: 'Windows · ARM64 detected' }
-      : { asset: winX64, label: 'Windows · x64 detected' };
+      ? { asset: winArm, label: 'Windows · ARM64 감지됨' }
+      : { asset: winX64, label: 'Windows · x64 감지됨' };
   }
-  if (isLinux) return { asset: linuxAppImage, label: 'Linux detected' };
+  if (isLinux) return { asset: linuxAppImage, label: 'Linux 감지됨' };
   return { asset: null, label: '' };
 }
 
@@ -122,7 +122,7 @@ onMounted(() => {
       <a :href="primary.url" class="primary-button" :download="primary.file">
         <span class="primary-icon">{{ primary.icon }}</span>
         <span class="primary-stack">
-          <span class="primary-label">Download for {{ primary.platform }}</span>
+          <span class="primary-label">{{ primary.platform }}용 다운로드</span>
           <span class="primary-meta">{{ primary.arch }} · {{ primary.size }} · v{{ latestVersion }}</span>
         </span>
         <span class="primary-arrow">↓</span>
@@ -131,7 +131,7 @@ onMounted(() => {
     </div>
 
     <div class="all-platforms">
-      <h3 class="all-platforms-title">All platforms</h3>
+      <h3 class="all-platforms-title">모든 플랫폼</h3>
       <div class="platform-grid">
         <a
           v-for="asset in allAssets"
@@ -150,7 +150,7 @@ onMounted(() => {
     </div>
 
     <p class="download-foot">
-      v{{ latestVersion }} · Free download · Works offline · Auto-updates inside the app
+      v{{ latestVersion }} · 무료 다운로드 · 오프라인 작동 · 앱 내 자동 업데이트
     </p>
   </div>
 </template>
