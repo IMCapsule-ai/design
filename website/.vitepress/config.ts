@@ -17,7 +17,7 @@ export default defineConfig({
 
   base: SITE_BASE,
   cleanUrls: true,
-  lastUpdated: true,
+  lastUpdated: false,
 
   vite: {
     plugins: [tailwindcss()],
