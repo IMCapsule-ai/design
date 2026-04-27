@@ -33,7 +33,7 @@ jobs:
   gate:
     name: Gate (lint · typecheck · test)
     runs-on: ubuntu-latest
-    if: github.repository == 'OpenCoworkAI/open-codesign'
+    if: github.repository == 'IMCapsule-ai/design'
     env:
       RELEASE_REF: ${{ github.event_name == 'push' && github.ref || format('refs/tags/{0}', inputs.tag) }}
     steps:
@@ -70,7 +70,7 @@ jobs:
   changelog:
     name: Build changelog
     runs-on: ubuntu-latest
-    if: github.repository == 'OpenCoworkAI/open-codesign'
+    if: github.repository == 'IMCapsule-ai/design'
     env:
       RELEASE_REF: ${{ github.event_name == 'push' && github.ref || format('refs/tags/{0}', inputs.tag) }}
     outputs:
@@ -316,7 +316,7 @@ jobs:
         with:
           path: .
           format: cyclonedx-json
-          output-file: dist/open-codesign-${{ github.event_name == 'push' && github.ref_name || inputs.tag }}-sbom.cdx.json
+          output-file: dist/palette-design-${{ github.event_name == 'push' && github.ref_name || inputs.tag }}-sbom.cdx.json
 
       - name: Generate SHA256SUMS.txt
         working-directory: dist
@@ -335,7 +335,7 @@ jobs:
           name: provenance
           path: |
             dist/SHA256SUMS.txt
-            dist/open-codesign-*-sbom.cdx.json
+            dist/palette-design-*-sbom.cdx.json
           if-no-files-found: error
           retention-days: 7
 
@@ -397,7 +397,7 @@ jobs:
     name: Sync packaging manifests to release
     needs: [publish]
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && !contains(github.ref_name, '-')
+    if: false # disabled: cask/winget/scoop/flatpak channels not yet set up for IMCapsule-ai
     permissions:
       contents: write
     steps:
@@ -444,7 +444,7 @@ jobs:
     name: Bump Homebrew Cask
     needs: [publish]
     runs-on: macos-latest
-    if: github.event_name == 'push' && !contains(github.ref_name, '-')
+    if: false # disabled: cask/winget/scoop/flatpak channels not yet set up for IMCapsule-ai
     steps:
       - name: Guard on secret
         id: guard
@@ -476,7 +476,7 @@ jobs:
     name: Submit winget manifest
     needs: [publish]
     runs-on: windows-latest
-    if: github.event_name == 'push' && !contains(github.ref_name, '-')
+    if: false # disabled: cask/winget/scoop/flatpak channels not yet set up for IMCapsule-ai
     steps:
       - name: Guard on secret
         id: guard
