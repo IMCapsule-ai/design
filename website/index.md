@@ -125,18 +125,6 @@ import { withBase } from 'vitepress'
 
 </div>
 
-<div class="codesign-section">
-
-## Watch a design come to life
-
-<p class="lede">From a blank prompt to a finished artifact — Palette plans, writes, self-checks, and hands you something with hover states, tabs, and empty states already wired up.</p>
-
-<div class="codesign-demo-video">
-  <DemoVideo src="/demos/generate-from-scratch.mp4" label="Generate a design from scratch" />
-</div>
-
-</div>
-
 <div class="codesign-cta">
 
 ### Ready to design without the wait?
