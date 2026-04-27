@@ -134,21 +134,19 @@ jobs:
         # runner per DMG guarantees `pnpm install` stages the right
         # better_sqlite3.node* files for each target and keeps the legacy
         # alias (better_sqlite3.node-electron.node) matching the DMG arch.
+        # Slim matrix for v0.1.6: prioritize Windows x64, drop the slow
+        # secondary arches (macos-13 Intel, win arm64) so the release ships
+        # in ~10 min instead of 60+ min waiting for Intel mac runners.
         include:
+          - os: windows-latest
+            label: windows-latest
+            artifact_name: installer-windows-latest
+            artifact_glob: 'apps/desktop/release/*.exe'
           - os: macos-latest # arm64 Apple Silicon runner
             label: macos-arm64
             mac_arch: arm64
             artifact_name: installer-macos-arm64
             artifact_glob: 'apps/desktop/release/*.dmg'
-          - os: macos-13 # Intel x64 runner (macos-latest is arm64)
-            label: macos-x64
-            mac_arch: x64
-            artifact_name: installer-macos-x64
-            artifact_glob: 'apps/desktop/release/*.dmg'
-          - os: windows-latest
-            label: windows-latest
-            artifact_name: installer-windows-latest
-            artifact_glob: 'apps/desktop/release/*.exe'
           - os: ubuntu-latest
             label: ubuntu-latest
             artifact_name: installer-ubuntu-latest
