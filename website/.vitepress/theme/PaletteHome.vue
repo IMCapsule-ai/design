@@ -197,6 +197,53 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
       </div>
     </section>
 
+    <!-- ─────── Hero shot ──────────────────────────────────────────────── -->
+    <section class="ph-section ph-shot-section">
+      <div class="ph-shot-frame">
+        <img
+          :src="withBase('/hero.png')"
+          alt="Palette Design — chat on the left, live preview on the right"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+    <!-- ─────── Take a closer look — NB2 screenshots ──────────────────── -->
+    <section class="ph-section">
+      <header class="ph-section-head">
+        <span class="ph-kicker">Take a closer look</span>
+        <h2 class="ph-h2">Six moments from the app.</h2>
+        <p class="ph-section-sub">From first launch to region-level rewrites.</p>
+      </header>
+
+      <div class="ph-gallery">
+        <figure class="ph-shot">
+          <img :src="withBase('/screenshots/comment-mode.png')" alt="Comment mode — drop a pin, the model rewrites only that region" loading="lazy" />
+          <figcaption><b>Comment, don't retype.</b> Drop pins on the preview; the model rewrites just that region.</figcaption>
+        </figure>
+        <figure class="ph-shot">
+          <img :src="withBase('/screenshots/tweaks-sliders.png')" alt="AI-emitted tweaks panel" loading="lazy" />
+          <figcaption><b>AI-tuned sliders.</b> The model emits the parameters worth tweaking. Drag, don't re-prompt.</figcaption>
+        </figure>
+        <figure class="ph-shot">
+          <img :src="withBase('/screenshots/agent-panel.png')" alt="Live agent panel showing todos and streaming tool calls" loading="lazy" />
+          <figcaption><b>Watch the agent work.</b> Todos, tool calls, and streamed reasoning — always interruptible.</figcaption>
+        </figure>
+        <figure class="ph-shot">
+          <img :src="withBase('/screenshots/hub-your-designs.png')" alt="Your Designs hub" loading="lazy" />
+          <figcaption><b>Every iteration, kept.</b> Designs are saved locally; switch between projects in one click.</figcaption>
+        </figure>
+        <figure class="ph-shot">
+          <img :src="withBase('/screenshots/hub-examples.png')" alt="Built-in template gallery" loading="lazy" />
+          <figcaption><b>Twelve built-in templates.</b> Landing, dashboard, pricing, pitch deck, chat UI — one click to start.</figcaption>
+        </figure>
+        <figure class="ph-shot">
+          <img :src="withBase('/screenshots/add-provider-menu.png')" alt="Settings dialog" loading="lazy" />
+          <figcaption><b>Tuned for design work.</b> Multiple AI engines under the hood, picked automatically for the task.</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <!-- ─────── Stats strip ─────────────────────────────────────────────── -->
     <section class="ph-stats">
       <div class="ph-stats-card">
@@ -813,6 +860,65 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
   font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--ph-text-2);
+}
+
+/* ─── Hero shot ────────────────────────────────────────────────────────── */
+.ph-shot-section {
+  padding-top: 0;
+  padding-bottom: 32px;
+}
+.ph-shot-frame {
+  position: relative;
+  border-radius: 24px;
+  padding: 8px;
+  background: var(--ph-grad-soft);
+  box-shadow: 0 24px 60px -20px rgba(99, 102, 241, 0.4);
+}
+.ph-shot-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  border: 1px solid rgba(99, 102, 241, 0.18);
+}
+
+/* ─── Gallery ──────────────────────────────────────────────────────────── */
+.ph-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 22px;
+}
+.ph-shot {
+  margin: 0;
+  background: var(--ph-surface);
+  border: 1px solid var(--ph-border);
+  border-radius: 22px;
+  overflow: hidden;
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 200ms ease,
+    border-color 200ms ease;
+}
+.ph-shot:hover {
+  transform: translateY(-3px);
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 18px 40px -16px rgba(99, 102, 241, 0.22);
+}
+.ph-shot img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: center top;
+  border-bottom: 1px solid var(--ph-border);
+}
+.ph-shot figcaption {
+  padding: 16px 20px 20px;
+  color: var(--ph-text-2);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+.ph-shot figcaption b {
+  color: var(--ph-text);
+  font-weight: 700;
 }
 
 /* ─── Stats strip ──────────────────────────────────────────────────────── */
