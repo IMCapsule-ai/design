@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #fbfaff;
+        font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+        color: #1c1b29;
+      }
+
+      .blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(120px);
+        opacity: 0.55;
+        pointer-events: none;
+      }
+      #blob-1 { width: 800px; height: 800px; top: -200px; left: -180px;
+        background: radial-gradient(circle, #6366f1 0%, transparent 65%); }
+      #blob-2 { width: 700px; height: 700px; top: 120px; right: -180px;
+        background: radial-gradient(circle, #ec4899 0%, transparent 65%); }
+      #blob-3 { width: 600px; height: 600px; bottom: -180px; left: 35%;
+        background: radial-gradient(circle, #a855f7 0%, transparent 65%); opacity: 0.45; }
+
+      /* Centered without CSS transform — GSAP can animate y/scale freely. */
+      #brandmark {
+        position: absolute;
+        top: 360px;       /* (1080 - 360) / 2 */
+        left: 780px;      /* (1920 - 360) / 2 */
+        width: 360px;
+        height: 360px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ede9fe 0%, #fce7f3 100%);
+        padding: 44px;
+        box-shadow: 0 28px 80px -28px rgba(99,102,241,0.45);
+        display: flex; align-items: center; justify-content: center;
+        transform-origin: center center;
+      }
+      #brandmark img { width: 100%; height: 100%; object-fit: contain; }
+
+      .text-row {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        text-align: center;
+      }
+      #headline {
+        top: 460px;
+        font-size: 168px;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 1.0;
+      }
+      #headline .grad {
+        background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-style: italic;
+      }
+      #tagline {
+        top: 700px;
+        font-size: 36px;
+        color: #4a4860;
+        font-weight: 500;
+        letter-spacing: -0.005em;
+      }
+      #wordmark {
+        bottom: 78px;
+        top: auto;
+        font-size: 56px;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+      }
+      #wordmark span {
+        background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .floater {
+        position: absolute;
+        background: #fff;
+        border: 1px solid #e3def5;
+        border-radius: 28px;
+        padding: 28px 32px;
+        box-shadow: 0 32px 80px -24px rgba(28,27,41,0.18);
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        width: 360px;
+      }
+      .ftag {
+        font-size: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        background: linear-gradient(135deg, #6366f1, #ec4899);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .bar { height: 16px; border-radius: 8px;
+        background: linear-gradient(90deg, #6366f1, #ec4899); }
+      .bar.short { width: 56%; opacity: 0.55; }
+      .pill { height: 22px; border-radius: 999px; background: linear-gradient(90deg, #ede9fe, #fce7f3); }
+      .pill.s2 { width: 70%; }
+      .pill.s3 { width: 50%; }
+      .chart { display: flex; align-items: flex-end; gap: 8px; height: 96px; }
+      .chart span { flex: 1; background: linear-gradient(180deg, #6366f1, #ec4899);
+        border-radius: 6px 6px 0 0; opacity: 0.85; }
+
+      #f1 { top: 200px; left: 160px; }
+      #f2 { top: 460px; right: 160px; }
+      #f3 { bottom: 220px; left: 240px; }
+    </style>
+  </head>
+
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="6"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="blob-1" class="blob clip" data-start="0" data-duration="6" data-track-index="0"></div>
+      <div id="blob-2" class="blob clip" data-start="0" data-duration="6" data-track-index="1"></div>
+      <div id="blob-3" class="blob clip" data-start="0" data-duration="6" data-track-index="2"></div>
+
+      <div id="brandmark" class="clip" data-start="0" data-duration="6" data-track-index="3">
+        <img src="logo-mark.png" alt="Palette Design" />
+      </div>
+
+      <div id="f1" class="floater clip" data-start="0.5" data-duration="5.5" data-track-index="4">
+        <span class="ftag">Landing</span>
+        <div class="bar"></div>
+        <div class="bar short"></div>
+      </div>
+
+      <div id="f2" class="floater clip" data-start="0.9" data-duration="5.1" data-track-index="5">
+        <span class="ftag">Pricing</span>
+        <div class="pill"></div>
+        <div class="pill s2"></div>
+        <div class="pill s3"></div>
+      </div>
+
+      <div id="f3" class="floater clip" data-start="1.3" data-duration="4.7" data-track-index="6">
+        <span class="ftag">Dashboard</span>
+        <div class="chart">
+          <span style="height: 32%"></span>
+          <span style="height: 64%"></span>
+          <span style="height: 48%"></span>
+          <span style="height: 88%"></span>
+          <span style="height: 56%"></span>
+          <span style="height: 72%"></span>
+        </div>
+      </div>
+
+      <div id="headline" class="text-row clip" data-start="2.4" data-duration="3.6" data-track-index="7">
+        Design with <span class="grad">intent.</span>
+      </div>
+
+      <div id="tagline" class="text-row clip" data-start="3.1" data-duration="2.9" data-track-index="8">
+        A desktop AI design platform. Prompt to prototype, in seconds.
+      </div>
+
+      <div id="wordmark" class="text-row clip" data-start="4.0" data-duration="2.0" data-track-index="9">
+        <span>Palette Design</span>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // Background blobs gentle drift
+      tl.from('#blob-1', { x: -200, opacity: 0, duration: 1.2, ease: 'power2.out' }, 0)
+        .from('#blob-2', { x: 200, opacity: 0, duration: 1.2, ease: 'power2.out' }, 0)
+        .from('#blob-3', { y: 200, opacity: 0, duration: 1.4, ease: 'power2.out' }, 0)
+        .to('#blob-1', { x: 80, duration: 6, ease: 'none' }, 0)
+        .to('#blob-2', { x: -80, duration: 6, ease: 'none' }, 0);
+
+      // Brand mark — pop in centered, then drift up + shrink
+      tl.from('#brandmark', { scale: 0.4, opacity: 0, duration: 1.0, ease: 'back.out(1.6)' }, 0.1)
+        .to('#brandmark', { y: -120, scale: 0.55, duration: 1.6, ease: 'power3.inOut' }, 1.6);
+
+      // Floaters slide in from off-canvas
+      tl.from('#f1', { x: -500, opacity: 0, duration: 0.9, ease: 'power3.out' }, 0.5)
+        .from('#f2', { x: 500, opacity: 0, duration: 0.9, ease: 'power3.out' }, 0.9)
+        .from('#f3', { y: 400, opacity: 0, duration: 0.9, ease: 'power3.out' }, 1.3);
+
+      // Text reveals
+      tl.from('#headline', { y: 80, opacity: 0, duration: 0.9, ease: 'power3.out' }, 2.4)
+        .from('#tagline', { y: 30, opacity: 0, duration: 0.8, ease: 'power2.out' }, 3.1)
+        .from('#wordmark', { y: 30, opacity: 0, duration: 0.8, ease: 'power2.out' }, 4.0);
+
+      window.__timelines['main'] = tl;
+    </script>
+  </body>
+</html>

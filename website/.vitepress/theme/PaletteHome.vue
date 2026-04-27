@@ -197,13 +197,18 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
       </div>
     </section>
 
-    <!-- ─────── Hero shot ──────────────────────────────────────────────── -->
+    <!-- ─────── Hero video (HyperFrames) ──────────────────────────────── -->
     <section class="ph-section ph-shot-section">
-      <div class="ph-shot-frame">
-        <img
-          :src="withBase('/hero.png')"
-          alt="Palette Design — chat on the left, live preview on the right"
-          loading="lazy"
+      <div class="ph-shot-frame ph-video-frame">
+        <video
+          :src="withBase('/demos/hero.mp4')"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          :poster="withBase('/hero.png')"
+          aria-label="Palette Design — design with intent"
         />
       </div>
     </section>
@@ -874,12 +879,18 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll));
   background: var(--ph-grad-soft);
   box-shadow: 0 24px 60px -20px rgba(99, 102, 241, 0.4);
 }
-.ph-shot-frame img {
+.ph-shot-frame img,
+.ph-shot-frame video {
   display: block;
   width: 100%;
   height: auto;
   border-radius: 18px;
   border: 1px solid rgba(99, 102, 241, 0.18);
+  background: #fbfaff;
+}
+.ph-video-frame video {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
 /* ─── Gallery ──────────────────────────────────────────────────────────── */
