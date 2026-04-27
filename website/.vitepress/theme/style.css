@@ -1,77 +1,84 @@
 @import "tailwindcss";
 
 /**
- * open-codesign tokens — kept in sync with packages/ui/src/tokens.css.
- * If you change a value here, update tokens.css too.
+ * Palette Design — brand tokens.
+ * Primary palette: indigo → magenta gradient with cream surfaces.
  */
 :root {
-  --color-background: #faf8f3;
-  --color-background-secondary: #f3efe6;
+  --color-background: #fbfaff;
+  --color-background-secondary: #f4f1ff;
   --color-surface: #ffffff;
-  --color-surface-hover: #f7f4ec;
-  --color-surface-active: #efeae0;
-  --color-surface-muted: #f3efe6;
+  --color-surface-hover: #f7f4ff;
+  --color-surface-active: #ece8ff;
+  --color-surface-muted: #f4f1ff;
 
-  --color-border: #e3ddd0;
-  --color-border-muted: #ece6d8;
-  --color-border-subtle: #f3efe6;
+  --color-border: #e3def5;
+  --color-border-muted: #ece8f7;
+  --color-border-subtle: #f4f1ff;
 
-  --color-accent: #c96442;
-  --color-accent-hover: #b75636;
-  --color-accent-muted: #f3d9cf;
+  --color-accent: #6366f1;
+  --color-accent-hover: #4f46e5;
+  --color-accent-muted: #ede9fe;
+  --color-accent-2: #ec4899;
+  --color-accent-2-muted: #fce7f3;
 
-  --color-text-primary: #1f1d18;
-  --color-text-secondary: #57544c;
-  --color-text-muted: #8c887d;
+  --color-text-primary: #1c1b29;
+  --color-text-secondary: #4a4860;
+  --color-text-muted: #807e96;
 
-  --color-success: #4f7a52;
-  --color-warning: #b8862a;
-  --color-error: #b04030;
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-error: #e11d48;
 
-  --shadow-soft: 0 1px 2px rgba(31, 29, 24, 0.04);
-  --shadow-card: 0 2px 8px rgba(31, 29, 24, 0.06);
-  --shadow-elevated: 0 8px 24px rgba(31, 29, 24, 0.1);
+  --shadow-soft: 0 1px 2px rgba(28, 27, 41, 0.04);
+  --shadow-card: 0 2px 8px rgba(28, 27, 41, 0.06);
+  --shadow-elevated: 0 16px 40px -12px rgba(99, 102, 241, 0.18);
 
-  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --gradient-brand: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+  --gradient-brand-soft: linear-gradient(135deg, #ede9fe 0%, #fce7f3 100%);
+
+  --font-sans: "Plus Jakarta Sans", "Inter", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
 
   --radius-sm: 6px;
   --radius-md: 8px;
-  --radius-lg: 10px;
-  --radius-xl: 14px;
-  --radius-2xl: 16px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
 }
 
 .dark {
-  --color-background: #1a1815;
-  --color-background-secondary: #221f1b;
-  --color-surface: #26221d;
-  --color-surface-hover: #2d2925;
-  --color-surface-active: #34302b;
-  --color-surface-muted: #221f1b;
+  --color-background: #0f0e1a;
+  --color-background-secondary: #16142a;
+  --color-surface: #1c1a32;
+  --color-surface-hover: #232040;
+  --color-surface-active: #2a2750;
+  --color-surface-muted: #16142a;
 
-  --color-border: #3a352f;
-  --color-border-muted: #2f2b26;
-  --color-border-subtle: #26221d;
+  --color-border: #2c2950;
+  --color-border-muted: #232040;
+  --color-border-subtle: #1c1a32;
 
-  --color-accent: #d97757;
-  --color-accent-hover: #e88868;
-  --color-accent-muted: #4a2b22;
+  --color-accent: #818cf8;
+  --color-accent-hover: #a5b4fc;
+  --color-accent-muted: #312e81;
+  --color-accent-2: #f472b6;
+  --color-accent-2-muted: #831843;
 
-  --color-text-primary: #f5f1e8;
-  --color-text-secondary: #b8b3a6;
-  --color-text-muted: #807b6f;
+  --color-text-primary: #f4f1ff;
+  --color-text-secondary: #b8b4d0;
+  --color-text-muted: #807c98;
 
-  --color-success: #6b9c6e;
-  --color-warning: #d4a04a;
-  --color-error: #d96050;
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-error: #f43f5e;
 
-  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.4);
-  --shadow-elevated: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --shadow-elevated: 0 16px 40px -12px rgba(99, 102, 241, 0.35);
 }
 
-/* Map open-codesign tokens onto VitePress variables. */
+/* Map Palette tokens onto VitePress variables. */
 :root {
   --vp-c-bg: var(--color-background);
   --vp-c-bg-alt: var(--color-background-secondary);
@@ -107,13 +114,10 @@
   --vp-button-alt-hover-border: var(--color-accent);
   --vp-button-alt-text: var(--color-text-primary);
 
-  --vp-home-hero-name-color: var(--color-accent);
-  --vp-home-hero-image-background-image: linear-gradient(
-    135deg,
-    var(--color-accent-muted),
-    var(--color-surface-active)
-  );
-  --vp-home-hero-image-filter: blur(48px);
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: var(--gradient-brand);
+  --vp-home-hero-image-background-image: var(--gradient-brand-soft);
+  --vp-home-hero-image-filter: blur(56px);
 
   --vp-font-family-base: var(--font-sans);
   --vp-font-family-mono: var(--font-mono);
@@ -128,15 +132,41 @@ body {
   color: var(--color-text-primary);
 }
 
-/* Hero polish */
-.VPHero .name,
+/* Hero polish — make the name use the brand gradient. */
+.VPHero .name {
+  letter-spacing: -0.03em;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
 .VPHero .text {
   letter-spacing: -0.02em;
+  font-weight: 700;
 }
 
 .VPHero .tagline {
   color: var(--color-text-secondary);
-  max-width: 36rem;
+  max-width: 38rem;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.VPHero .image-bg {
+  background-image: var(--gradient-brand-soft) !important;
+  opacity: 0.85;
+}
+
+/* Hero buttons — give the brand button a subtle gradient. */
+.VPButton.brand {
+  background: var(--gradient-brand) !important;
+  border: none !important;
+  box-shadow: 0 8px 24px -8px rgba(99, 102, 241, 0.5) !important;
+}
+.VPButton.brand:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
 }
 
 /* Feature cards */
@@ -149,28 +179,28 @@ body {
     0.18s ease;
 }
 .VPFeature:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   border-color: var(--color-accent-muted);
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-elevated);
 }
 
-/* Comparison + section blocks reused on the homepage */
+/* Homepage section blocks */
 .codesign-section {
-  max-width: 960px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 56px 24px 24px;
+  padding: 64px 24px 24px;
 }
 .codesign-section h2 {
   text-align: center;
-  font-size: 1.875rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   margin-bottom: 12px;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-/* Hide VitePress's default "#" header-anchor on landing section titles.
-   The anchor is useful in documentation but reads as noise on the
-   marketing home — it wraps the h2 heading with a floating "#" glyph
-   that looks like a broken marker. */
 .codesign-section h2 .header-anchor,
 .codesign-section h3 .header-anchor,
 .codesign-cta h3 .header-anchor {
@@ -179,114 +209,108 @@ body {
 .codesign-section .lede {
   text-align: center;
   color: var(--color-text-secondary);
-  max-width: 38rem;
-  margin: 0 auto 32px;
+  max-width: 42rem;
+  margin: 0 auto 36px;
+  font-size: 1.05rem;
+  line-height: 1.55;
 }
 
 .codesign-steps {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
 }
 .codesign-step {
   background: var(--color-surface);
   border: 1px solid var(--color-border-muted);
   border-radius: var(--radius-xl);
-  padding: 20px;
+  padding: 24px;
   box-shadow: var(--shadow-soft);
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s ease;
+}
+.codesign-step:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-elevated);
 }
 .codesign-step .num {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
   border-radius: 999px;
-  background: var(--color-accent-muted);
-  color: var(--color-accent);
-  font-weight: 600;
-  font-size: 0.875rem;
-  margin-bottom: 12px;
+  background: var(--gradient-brand);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 12px -4px rgba(99, 102, 241, 0.5);
 }
 .codesign-step h3 {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.05rem;
+  font-weight: 700;
   margin-bottom: 6px;
+  color: var(--color-text-primary);
 }
 .codesign-step p {
   color: var(--color-text-secondary);
   font-size: 0.95rem;
-  line-height: 1.55;
+  line-height: 1.6;
   margin: 0;
-}
-
-.codesign-comparison {
-  overflow-x: auto;
-}
-.codesign-comparison table {
-  width: 100%;
-  display: table;
-  table-layout: fixed;
-  border-collapse: collapse;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border-muted);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  font-size: 0.95rem;
-}
-.codesign-comparison th,
-.codesign-comparison td {
-  padding: 12px 16px;
-  text-align: center;
-  border-bottom: 1px solid var(--color-border-subtle);
-}
-.codesign-comparison th {
-  background: var(--color-surface-muted);
-  font-weight: 600;
-  color: var(--color-text-primary);
-}
-.codesign-comparison th:first-child,
-.codesign-comparison td:first-child {
-  text-align: left;
-  color: var(--color-text-secondary);
-}
-.codesign-comparison tr:last-child td {
-  border-bottom: 0;
-}
-.codesign-comparison .yes {
-  color: var(--color-success);
-  font-weight: 600;
-}
-.codesign-comparison .no {
-  color: var(--color-text-muted);
-}
-.codesign-comparison .ours {
-  background: var(--color-accent-muted);
-  color: var(--color-accent);
-  font-weight: 700;
 }
 
 .codesign-cta {
   text-align: center;
-  padding: 64px 24px 96px;
+  padding: 80px 24px 96px;
+  margin: 64px auto 0;
+  max-width: 900px;
+  position: relative;
+}
+.codesign-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-brand-soft);
+  border-radius: var(--radius-2xl);
+  z-index: -1;
+  opacity: 0.6;
+}
+.codesign-cta h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  color: var(--color-text-primary);
 }
 .codesign-cta a {
   display: inline-block;
-  padding: 12px 24px;
+  padding: 14px 28px;
+  margin: 4px;
   border-radius: var(--radius-lg);
-  background: var(--color-accent);
-  color: #ffffff;
   font-weight: 600;
-  text-decoration: none;
-  box-shadow: var(--shadow-card);
-  transition: background 0.18s ease, transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none !important;
+  transition: background 0.18s ease, transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s
+    ease;
 }
-.codesign-cta a:hover {
-  background: var(--color-accent-hover);
-  transform: translateY(-1px);
+.codesign-cta .cta-primary {
+  background: var(--gradient-brand);
+  color: #ffffff !important;
+  box-shadow: 0 8px 24px -8px rgba(99, 102, 241, 0.5);
 }
-
-/* ── Demo video blocks ──────────────────────────────────────────────────── */
+.codesign-cta .cta-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 12px 32px -8px rgba(99, 102, 241, 0.6);
+}
+.codesign-cta .cta-secondary {
+  background: var(--color-surface);
+  color: var(--color-text-primary) !important;
+  border: 1px solid var(--color-border);
+}
+.codesign-cta .cta-secondary:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
 
 /* Static hero shot — sits between VitePress hero and SmartDownload. */
 .codesign-hero-shot {
@@ -298,14 +322,14 @@ body {
   width: 100%;
   border-radius: 14px;
   display: block;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.04), 0 16px 40px -16px rgba(26, 26, 26, 0.28);
+  box-shadow: var(--shadow-elevated);
 }
 
-/* Screenshot gallery — 2×3 grid on desktop, 1 column on mobile. */
+/* Screenshot gallery */
 .codesign-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
 }
 .codesign-gallery figure {
   margin: 0;
@@ -318,9 +342,9 @@ body {
     0.18s ease;
 }
 .codesign-gallery figure:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   border-color: var(--color-accent-muted);
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-elevated);
 }
 .codesign-gallery img {
   width: 100%;
@@ -331,107 +355,83 @@ body {
   border-bottom: 1px solid var(--color-border-subtle);
 }
 .codesign-gallery figcaption {
-  padding: 14px 18px 18px;
+  padding: 16px 20px 20px;
   color: var(--color-text-secondary);
-  font-size: 0.92rem;
-  line-height: 1.5;
+  font-size: 0.95rem;
+  line-height: 1.55;
 }
 .codesign-gallery figcaption b {
   color: var(--color-text-primary);
-  font-weight: 600;
+  font-weight: 700;
 }
 
-/* Hero autoplay loop — legacy, kept for pages that still use DemoVideo hero. */
-.codesign-hero-video {
-  max-width: 1080px;
-  margin: 2rem auto 0.5rem;
-  padding: 0 1.5rem;
-}
-.codesign-hero-video video {
-  width: 100%;
-  border-radius: 14px;
-  display: block;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.04), 0 16px 40px -16px rgba(26, 26, 26, 0.28);
-}
-
-/* Full-length demo with controls (generate-from-scratch walkthrough). */
+/* Demo video block */
 .codesign-demo-video {
   max-width: 960px;
   margin: 1.5rem auto 0;
 }
 .codesign-demo-video video {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 14px;
   display: block;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(26, 26, 26, 0.24);
+  box-shadow: var(--shadow-elevated);
 }
 
-/* Community — two-card row directly under "Trusted by builders" with the
- * WeChat QR image on one side and GitHub Issues on the other. Both cards
- * share the same card skeleton; WeChat card is taller because of the QR.
- */
-.codesign-community {
+/* Brand-coloured gradient pill used in stats / pricing strip. */
+.codesign-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
-  margin: 1.5rem auto 0;
-  max-width: 820px;
-  padding: 0 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  max-width: 900px;
+  margin: 24px auto 0;
 }
-.community-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-  padding: 1.1rem 1.25rem 1.25rem;
-  border: 1px solid var(--vp-c-divider, rgba(0, 0, 0, 0.08));
-  background: var(--vp-c-bg-soft, rgba(0, 0, 0, 0.02));
-  border-radius: 12px;
+.codesign-stat {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-muted);
+  border-radius: var(--radius-xl);
+  padding: 20px 24px;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
 }
-.community-card h3 {
-  margin: 0;
-  font-size: 1rem;
-  letter-spacing: -0.01em;
-}
-.community-hint {
-  margin: 0;
-  font-size: 0.86rem;
-  line-height: 1.55;
-  color: var(--vp-c-text-2, #6b6b6b);
-}
-.community-hint a {
-  color: var(--vp-c-brand-1, #c96442);
-  text-decoration: none;
-}
-.community-hint a:hover {
-  text-decoration: underline;
-}
-.community-card .wechat-qr {
+.codesign-stat .stat-value {
   display: block;
-  margin: 0.25rem auto 0;
-  width: 100%;
-  max-width: 240px;
-  height: auto;
-  border-radius: 8px;
-  border: 1px solid var(--vp-c-divider, rgba(0, 0, 0, 0.08));
-  background: #fff;
+  font-size: 2rem;
+  font-weight: 800;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
 }
-.community-cta {
-  margin: auto 0 0;
-  padding-top: 0.25rem;
-}
-.community-button {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.4rem 0.9rem;
-  border-radius: 8px;
-  background: var(--vp-c-brand-1, #c96442);
-  color: #fff !important;
-  text-decoration: none !important;
-  font-size: 0.86rem;
+.codesign-stat .stat-label {
+  display: block;
+  margin-top: 4px;
+  color: var(--color-text-secondary);
+  font-size: 0.88rem;
   font-weight: 500;
-  transition: transform 120ms ease-out, background-color 120ms ease;
 }
-.community-button:hover {
-  transform: translateY(-1px);
-  background: var(--vp-c-brand-2, #b8583a);
+
+/* Hero brand mark — soft gradient halo behind a centered logo. */
+.VPHero .image-container {
+  background: var(--gradient-brand-soft);
+  border-radius: 50%;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-elevated);
+}
+.VPHero .image-src {
+  position: static !important;
+  transform: none !important;
+  max-width: 85% !important;
+  max-height: 85% !important;
+  filter: drop-shadow(0 6px 16px rgba(99, 102, 241, 0.3));
+}
+
+/* Top-nav wordmark — the SVG ships with black fill, so invert in dark mode
+ * to keep it readable against the deep-purple background. */
+.dark .VPNavBarTitle .logo,
+.dark .VPNavBarTitle img {
+  filter: invert(1) brightness(1.4);
 }

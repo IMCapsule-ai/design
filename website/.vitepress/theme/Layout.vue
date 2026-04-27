@@ -11,8 +11,8 @@ const { frontmatter } = useData();
     <template #home-hero-after>
       <div v-if="frontmatter.layout === 'home'" class="codesign-hero-shot">
         <img
-          :src="withBase('/screenshots/product-hero.png')"
-          alt="Open CoDesign — chat on the left, live artifact on the right"
+          :src="withBase('/hero.png')"
+          alt="Palette Design — design with intent"
         />
       </div>
     </template>

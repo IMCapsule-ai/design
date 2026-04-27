@@ -2,17 +2,17 @@ import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vitepress';
 import rootPkg from '../../package.json' with { type: 'json' };
 
-const SITE_ORIGIN = 'https://opencoworkai.github.io';
-const SITE_BASE = '/open-codesign/';
+const SITE_ORIGIN = 'https://palettedesign.app';
+const SITE_BASE = '/';
 const SITE_URL = `${SITE_ORIGIN}${SITE_BASE}`;
-const OG_IMAGE = `${SITE_URL}og.svg`;
+const OG_IMAGE = `${SITE_URL}og.png`;
 const SOFTWARE_VERSION = (rootPkg as { version: string }).version;
 
 export default defineConfig({
-  title: 'Open CoDesign',
-  titleTemplate: ':title — Open CoDesign',
+  title: 'Palette Design',
+  titleTemplate: ':title — Palette Design',
   description:
-    'Open-source desktop AI design tool — the self-hosted alternative to Claude Design. Multi-model BYOK (Anthropic, OpenAI, Gemini, DeepSeek, Ollama), local-first, MIT.',
+    'Palette Design is a desktop AI design platform — go from prompt to polished prototype, slide deck, or marketing asset in seconds. Download for macOS, Windows, and Linux.',
   lang: 'en-US',
 
   base: SITE_BASE,
@@ -37,18 +37,17 @@ export default defineConfig({
       'link',
       { rel: 'apple-touch-icon', sizes: '180x180', href: `${SITE_BASE}apple-touch-icon.png` },
     ],
-    ['meta', { name: 'theme-color', content: '#c96442' }],
-    ['meta', { name: 'google-site-verification', content: 'c3cbbeaec5437546' }],
+    ['meta', { name: 'theme-color', content: '#6366f1' }],
     // Open Graph
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:site_name', content: 'Open CoDesign' }],
-    ['meta', { property: 'og:title', content: 'Open CoDesign — Open-Source AI Design Tool' }],
+    ['meta', { property: 'og:site_name', content: 'Palette Design' }],
+    ['meta', { property: 'og:title', content: 'Palette Design — AI Design Platform for Desktop' }],
     [
       'meta',
       {
         property: 'og:description',
         content:
-          'Open-source desktop AI design tool. A self-hosted alternative to Claude Design. Prompt to prototype, slide deck, or marketing asset. Multi-model BYOK, local-first, MIT.',
+          'Palette Design is a desktop AI design platform. Prompt to prototype, slide deck, or marketing asset. Download for macOS, Windows, and Linux.',
       },
     ],
     ['meta', { property: 'og:image', content: OG_IMAGE }],
@@ -57,29 +56,27 @@ export default defineConfig({
     ['meta', { property: 'og:url', content: SITE_URL }],
     // Twitter / X
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
-    ['meta', { name: 'twitter:site', content: '@OpenCoworkAI' }],
-    ['meta', { name: 'twitter:title', content: 'Open CoDesign — Open-Source AI Design Tool' }],
+    ['meta', { name: 'twitter:site', content: '@PaletteDesign' }],
+    ['meta', { name: 'twitter:title', content: 'Palette Design — AI Design Platform' }],
     [
       'meta',
       {
         name: 'twitter:description',
-        content: 'Open-source desktop AI design tool. BYOK, local-first, MIT. Runs on your laptop.',
+        content: 'Desktop AI design platform. Prompt to prototype in seconds. Runs on your laptop.',
       },
     ],
     ['meta', { name: 'twitter:image', content: OG_IMAGE }],
-    // SEO keywords — natural density, not stuffed
     [
       'meta',
       {
         name: 'keywords',
         content:
-          'open source AI design tool, Claude Design alternative, BYOK design app, local-first design generator, AI prototype generator, prompt to HTML, prompt to React component, open-codesign, multi-model design, Electron design app',
+          'AI design platform, desktop design app, prompt to prototype, AI prototype generator, prompt to HTML, prompt to React component, palette design, AI slide deck, AI landing page, design automation',
       },
     ],
     ['meta', { name: 'robots', content: 'index,follow,max-image-preview:large' }],
-    ['meta', { name: 'author', content: 'OpenCoworkAI' }],
+    ['meta', { name: 'author', content: 'Palette Design' }],
     ['link', { rel: 'alternate', hreflang: 'en', href: SITE_URL }],
-    ['link', { rel: 'alternate', hreflang: 'zh-CN', href: `${SITE_URL}zh/` }],
     ['link', { rel: 'alternate', hreflang: 'x-default', href: SITE_URL }],
     // JSON-LD — SoftwareApplication
     [
@@ -88,49 +85,42 @@ export default defineConfig({
       JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'SoftwareApplication',
-        name: 'Open CoDesign',
-        alternateName: 'open-codesign',
+        name: 'Palette Design',
+        alternateName: 'palette-design',
         description:
-          'Open-source desktop AI design tool. The open-source alternative to Anthropic Claude Design. Prompt to interactive prototype, slide deck, and marketing assets. Multi-model BYOK, local-first.',
+          'Palette Design is a desktop AI design platform. Prompt to interactive prototype, slide deck, and marketing assets. Available for macOS, Windows, and Linux.',
         url: SITE_URL,
         applicationCategory: 'DesignApplication',
         operatingSystem: 'macOS, Windows, Linux',
         softwareVersion: SOFTWARE_VERSION,
-        releaseNotes: `${SITE_URL}#whats-working-today`,
-        downloadUrl: 'https://github.com/OpenCoworkAI/open-codesign/releases',
-        screenshot: [
-          `${SITE_ORIGIN}/open-codesign/screenshots/product-hero.png`,
-          `${SITE_ORIGIN}/open-codesign/screenshots/comment-mode.png`,
-        ],
+        downloadUrl: `${SITE_URL}#download`,
         applicationSubCategory: 'AI Design Tool',
         featureList: [
           'Prompt-to-HTML prototype generation',
-          'Bring your own API key (Anthropic, OpenAI, Gemini, DeepSeek, Ollama, OpenRouter)',
-          'Local-first storage (SQLite + TOML)',
-          'Export to PDF, PPTX, ZIP, Markdown',
-          'Multi-model switching without re-login',
-          'One-click import of Claude Code / Codex API keys',
+          'Multi-model AI engine',
+          'Local-first storage on your laptop',
+          'Export to PDF, PPTX, ZIP, and Markdown',
           'AI image generation for design assets',
-          'Design history with snapshots and rollback',
+          'Region-level rewrites with comment pins',
+          'AI-tuned sliders for color, spacing, typography',
+          'Twelve built-in design skill modules',
         ],
         offers: {
           '@type': 'Offer',
           price: '0',
           priceCurrency: 'USD',
-          description: 'Free and open source. Bring your own API key (token cost only).',
+          description: 'Free download. Sign up to start designing.',
         },
-        license: 'https://opensource.org/licenses/MIT',
-        codeRepository: 'https://github.com/OpenCoworkAI/open-codesign',
         author: {
           '@type': 'Organization',
-          name: 'OpenCoworkAI',
-          url: 'https://github.com/OpenCoworkAI',
+          name: 'Palette Design',
+          url: SITE_URL,
         },
         keywords:
-          'Claude Design alternative, open source AI design, BYOK, local-first, Anthropic, Electron desktop app, prompt to prototype, React component generator, AI design tool',
+          'AI design platform, desktop design app, prompt to prototype, AI design tool, design automation, prompt to slide deck',
       }),
     ],
-    // JSON-LD — FAQPage (helps AI answers and Google rich results)
+    // JSON-LD — FAQPage
     [
       'script',
       { type: 'application/ld+json' },
@@ -140,42 +130,10 @@ export default defineConfig({
         mainEntity: [
           {
             '@type': 'Question',
-            name: 'What is Open CoDesign?',
+            name: 'What is Palette Design?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Open CoDesign is an open-source desktop AI design tool that turns natural-language prompts into HTML prototypes, JSX/React components, slide decks, and marketing assets. It is the open-source alternative to Anthropic Claude Design and runs entirely on your laptop.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Is Open CoDesign free?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes. Open CoDesign is MIT licensed and free to download and use. You bring your own API key for any supported model provider and pay only the token cost to that provider. There is no subscription, no cloud account, and no per-token surcharge from us.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Which AI models can I use with Open CoDesign?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Anthropic Claude, OpenAI GPT, Google Gemini, DeepSeek, OpenRouter, SiliconFlow, local Ollama, and any OpenAI-compatible endpoint. Keyless (IP-allowlisted) corporate proxies are also supported.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Does Open CoDesign send my data to the cloud?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'No. All designs, prompts, and configuration live on your machine — SQLite for history and encrypted TOML (via Electron safeStorage) for configuration. The only outbound network traffic is to the model provider you configure.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'How is Open CoDesign different from Claude Design?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Open CoDesign is open source, runs locally, supports any AI model via BYOK, ships twelve built-in design skill modules and fifteen demo prompts, imports your existing Claude Code or Codex config in one click, and exports to HTML, PDF, PPTX, ZIP, and Markdown. Claude Design is closed source, cloud-only, Anthropic-only, subscription-priced, and has limited export.',
+              text: 'Palette Design is a desktop AI design platform that turns natural-language prompts into HTML prototypes, JSX/React components, slide decks, and marketing assets — all on your laptop.',
             },
           },
           {
@@ -183,7 +141,23 @@ export default defineConfig({
             name: 'Which platforms are supported?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'macOS (Apple Silicon and Intel), Windows (x64 and arm64), and Linux (AppImage, .deb, .rpm). Heavy features like PDF and PPTX export are lazy-loaded.',
+              text: 'macOS (Apple Silicon and Intel), Windows (x64 and ARM64), and Linux (AppImage, .deb, .rpm).',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Where do my designs live?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Everything stays on your machine. Designs, prompts, and configuration are stored locally — nothing is uploaded to a server unless you explicitly choose to share.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'How do I get started?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Download the installer for your platform from the Download section, run it, and you can start prompting in under 90 seconds.',
             },
           },
         ],
@@ -196,10 +170,9 @@ export default defineConfig({
       JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Organization',
-        name: 'OpenCoworkAI',
-        url: 'https://github.com/OpenCoworkAI',
+        name: 'Palette Design',
+        url: SITE_URL,
         logo: `${SITE_URL}logo.png`,
-        sameAs: ['https://github.com/OpenCoworkAI', 'https://twitter.com/OpenCoworkAI'],
       }),
     ],
   ],
@@ -214,29 +187,14 @@ export default defineConfig({
   },
 
   themeConfig: {
-    logo: { src: '/logo.png', alt: 'open-codesign' },
+    logo: { src: '/logo.svg', alt: 'Palette Design' },
 
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Features', link: '/#features' },
+      { text: 'Download', link: '/#download' },
       { text: 'Quickstart', link: '/quickstart' },
-      {
-        text: 'Compare',
-        items: [
-          { text: 'vs Claude Design', link: '/claude-design-alternative' },
-          { text: 'vs v0 by Vercel', link: '/v0-alternative' },
-          { text: 'vs Lovable', link: '/lovable-alternative' },
-          { text: 'vs Bolt.new', link: '/bolt-alternative' },
-          { text: 'vs Figma AI', link: '/figma-ai-alternative' },
-        ],
-      },
-      { text: 'Architecture', link: '/architecture' },
-      { text: 'Roadmap', link: '/roadmap' },
       { text: 'FAQ', link: '/faq' },
-      {
-        text: 'Changelog',
-        link: 'https://github.com/OpenCoworkAI/open-codesign/blob/main/CHANGELOG.md',
-      },
     ],
 
     sidebar: [
@@ -244,76 +202,22 @@ export default defineConfig({
         text: 'Get started',
         items: [
           { text: 'Overview', link: '/' },
+          { text: 'Download', link: '/#download' },
           { text: 'Quickstart', link: '/quickstart' },
         ],
       },
       {
-        text: 'Compare',
-        items: [
-          { text: 'vs Claude Design', link: '/claude-design-alternative' },
-          { text: 'vs v0 by Vercel', link: '/v0-alternative' },
-          { text: 'vs Lovable', link: '/lovable-alternative' },
-          { text: 'vs Bolt.new', link: '/bolt-alternative' },
-          { text: 'vs Figma AI', link: '/figma-ai-alternative' },
-        ],
-      },
-      {
-        text: 'Project',
-        items: [
-          { text: 'Architecture', link: '/architecture' },
-          { text: 'Roadmap', link: '/roadmap' },
-          {
-            text: 'Changelog',
-            link: 'https://github.com/OpenCoworkAI/open-codesign/blob/main/CHANGELOG.md',
-          },
-        ],
+        text: 'Help',
+        items: [{ text: 'FAQ', link: '/faq' }],
       },
     ],
 
-    socialLinks: [{ icon: 'github', link: 'https://github.com/OpenCoworkAI/open-codesign' }],
+    socialLinks: [],
 
     footer: {
       message:
-        'Released under the <a href="https://opensource.org/licenses/MIT">MIT License</a>. · <a href="https://github.com/OpenCoworkAI/open-codesign/blob/main/CONTRIBUTING.md">Contribute</a> · <a href="https://github.com/OpenCoworkAI/open-codesign/issues">Issues</a>',
-      copyright: '© 2026-present OpenCoworkAI',
-    },
-  },
-
-  locales: {
-    root: {
-      label: 'English',
-      lang: 'en',
-    },
-    zh: {
-      label: '中文',
-      lang: 'zh-CN',
-      title: 'Open CoDesign',
-      description:
-        '开源桌面 AI 设计工具——Claude Design 的自托管替代方案。自带 API Key（Anthropic、OpenAI、Gemini、DeepSeek、Ollama），100% 本地运行，MIT。',
-      themeConfig: {
-        nav: [
-          { text: '首页', link: '/zh/' },
-          { text: '快速开始', link: '/zh/quickstart' },
-          { text: '对比 Claude Design', link: '/zh/claude-design-alternative' },
-          { text: '常见问题', link: '/zh/faq' },
-          { text: 'GitHub', link: 'https://github.com/OpenCoworkAI/open-codesign' },
-        ],
-        sidebar: [
-          {
-            text: '入门',
-            items: [
-              { text: '简介', link: '/zh/' },
-              { text: '快速开始', link: '/zh/quickstart' },
-              { text: '对比 Claude Design', link: '/zh/claude-design-alternative' },
-              { text: '常见问题', link: '/zh/faq' },
-            ],
-          },
-        ],
-        footer: {
-          message: '基于 MIT 协议开源。',
-          copyright: '© 2026-present OpenCoworkAI',
-        },
-      },
+        '<a href="/quickstart">Quickstart</a> · <a href="/faq">FAQ</a> · <a href="mailto:hello@palettedesign.app">Contact</a>',
+      copyright: '© 2026-present Palette Design',
     },
   },
 });
