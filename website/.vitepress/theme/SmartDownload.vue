@@ -12,7 +12,7 @@ import pkg from '../../../package.json';
  */
 
 const latestVersion = (pkg as { version: string }).version;
-const DOWNLOAD_BASE = `https://downloads.palettedesign.app/v${latestVersion}`;
+const DOWNLOAD_BASE = `https://github.com/IMCapsule-ai/design/releases/download/v${latestVersion}`;
 
 type Asset = {
   label: string;
