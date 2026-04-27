@@ -1,20 +1,9 @@
 <script setup lang="ts">
-import { useData, withBase } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
 
 const { Layout } = DefaultTheme;
-const { frontmatter } = useData();
 </script>
 
 <template>
-  <Layout>
-    <template #home-hero-after>
-      <div v-if="frontmatter.layout === 'home'" class="codesign-hero-shot">
-        <img
-          :src="withBase('/hero.png')"
-          alt="Palette Design — design with intent"
-        />
-      </div>
-    </template>
-  </Layout>
+  <Layout />
 </template>

@@ -1,6 +1,7 @@
 import DefaultTheme from 'vitepress/theme';
 import DemoVideo from './DemoVideo.vue';
 import Layout from './Layout.vue';
+import PaletteHome from './PaletteHome.vue';
 import SmartDownload from './SmartDownload.vue';
 import './style.css';
 
@@ -10,5 +11,6 @@ export default {
   enhanceApp({ app }: { app: import('vue').App }) {
     app.component('SmartDownload', SmartDownload);
     app.component('DemoVideo', DemoVideo);
+    app.component('PaletteHome', PaletteHome);
   },
 };

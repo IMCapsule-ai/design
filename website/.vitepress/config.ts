@@ -187,7 +187,8 @@ export default defineConfig({
   },
 
   themeConfig: {
-    logo: { src: '/logo.svg', alt: 'Palette Design' },
+    logo: { src: '/logo-mark.png', alt: 'Palette Design', width: 28, height: 28 },
+    siteTitle: 'Palette Design',
 
     nav: [
       { text: 'Home', link: '/' },
