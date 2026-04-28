@@ -79,7 +79,11 @@ const linuxDeb: Asset = {
   icon: '🐧',
 };
 
-const allAssets: Asset[] = [macArm, macIntel, winX64, winArm, linuxAppImage, linuxDeb];
+// v0.1.8 ships mac arm64 + win x64 + linux x64 only. Intel mac and ARM
+// windows were dropped from the matrix; re-add when those binaries exist.
+const allAssets: Asset[] = [macArm, winX64, linuxAppImage, linuxDeb];
+void macIntel;
+void winArm;
 const primary = ref<Asset | null>(null);
 const detectedLabel = ref<string>('');
 
@@ -94,16 +98,12 @@ function detectPrimaryAsset(): { asset: Asset | null; label: string } {
   const isLinux = /linux/i.test(platformHint) || (!isMacUA && !isWin && /Linux/.test(ua));
 
   if (isMacUA) {
-    const looksIntel = /Intel Mac OS X/.test(ua) && !/AppleWebKit\/6(0[6-9]|[1-9][0-9])/.test(ua);
-    return looksIntel
-      ? { asset: macIntel, label: 'macOS · Intel 감지됨' }
-      : { asset: macArm, label: 'macOS · Apple Silicon 감지됨' };
+    // Only Apple Silicon ships in v0.1.8; Intel mac users get the same dmg.
+    return { asset: macArm, label: 'macOS · Apple Silicon 감지됨' };
   }
   if (isWin) {
-    const isArm = /ARM64|aarch64/i.test(ua) || /arm/i.test(platformHint);
-    return isArm
-      ? { asset: winArm, label: 'Windows · ARM64 감지됨' }
-      : { asset: winX64, label: 'Windows · x64 감지됨' };
+    // Only x64 ships in v0.1.8.
+    return { asset: winX64, label: 'Windows · x64 감지됨' };
   }
   if (isLinux) return { asset: linuxAppImage, label: 'Linux 감지됨' };
   return { asset: null, label: '' };
